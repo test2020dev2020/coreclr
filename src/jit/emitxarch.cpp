@@ -6818,11 +6818,11 @@ void emitter::emitDispIns(
         case IF_RRD_ARD:
         case IF_RWR_ARD:
         case IF_RRW_ARD:
-            if (IsAVXInstruction(ins))
+            if (IsAVXInstruction(ins) && attr == EA_32BYTE)) 
             {
                 printf("%s, %s", emitYMMregName((unsigned)id->idReg1()), sstr);
             }
-            else if (IsSSE2Instruction(ins))
+            else if (IsSSE2Instruction(ins) || IsAVXInstruction(ins))
             {
                 printf("%s, %s", emitXMMregName((unsigned)id->idReg1()), sstr);
             }
